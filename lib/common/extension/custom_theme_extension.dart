@@ -14,6 +14,7 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension> {
     blueColor: CusColors.blueLight,
     langBtnBgColor: Color(0XFFF7F8FA),
     langBtnHighLightBgColor: Color(0XFFE8E8ED),
+    greyBackground: Color(0XFF202C33),
   );
   static const darkMode = CustomThemeExtension(
     circleImageColor: CusColors.greenDark,
@@ -21,12 +22,14 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension> {
     blueColor: CusColors.blueDark,
     langBtnBgColor: Color(0XFF182229),
     langBtnHighLightBgColor: Color(0XFF09141A),
+    greyBackground: Color.fromARGB(255, 71, 93, 105),
   );
   final Color? circleImageColor;
   final Color? greyColor;
   final Color? blueColor;
   final Color? langBtnBgColor;
   final Color? langBtnHighLightBgColor;
+  final Color? greyBackground;
 
   const CustomThemeExtension({
     this.circleImageColor,
@@ -34,6 +37,7 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension> {
     this.blueColor,
     this.langBtnBgColor,
     this.langBtnHighLightBgColor,
+    this.greyBackground,
   });
 
   @override
@@ -43,6 +47,7 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension> {
     Color? blueColor,
     Color? langBtnBgColor,
     Color? langBtnHighLightBgColor,
+    Color? greyBackground,
   }) {
     return CustomThemeExtension(
       circleImageColor: circleImageColor ?? this.circleImageColor,
@@ -51,6 +56,7 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension> {
       langBtnBgColor: langBtnBgColor ?? this.langBtnBgColor,
       langBtnHighLightBgColor:
           langBtnHighLightBgColor ?? this.langBtnHighLightBgColor,
+      greyBackground: greyBackground ?? this.greyBackground,
     );
   }
 
@@ -65,6 +71,7 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension> {
       langBtnBgColor: Color.lerp(langBtnBgColor, other.langBtnBgColor, t),
       langBtnHighLightBgColor:
           Color.lerp(langBtnHighLightBgColor, other.langBtnHighLightBgColor, t),
+      greyBackground: Color.lerp(greyBackground, other.greyBackground, t),
     );
   }
 }

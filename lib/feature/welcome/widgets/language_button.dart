@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/common/extension/custom_theme_extension.dart';
+import 'package:my_app/common/extension/my_colors.dart';
 import 'package:my_app/common/utils/coolors.dart';
 
 class LanguageButton extends StatelessWidget {
-  const LanguageButton({super.key});
-  showBottomSheet(context) {
-    return showModalBottomSheet(
+  const LanguageButton({Key? key}) : super(key: key);
+
+  void showBottomSheet(BuildContext context) {
+    final mycolors = Theme.of(context).extension<MyColors>()!;
+
+    showModalBottomSheet(
+      backgroundColor: mycolors.myColor1,
       shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(top: Radius.circular(16))),
+        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+      ),
       context: context,
       builder: (context) {
         return Padding(
@@ -54,28 +60,91 @@ class LanguageButton extends StatelessWidget {
                 color: context.theme.greyColor!.withOpacity(0.3),
                 thickness: 1,
               ),
-              RadioListTile(
-                value: true,
-                groupValue: false,
-                onChanged: (value) {},
-                activeColor: CusColors.greenDark,
-                title: const Text('Việt nam'),
-                subtitle: Text(
-                  'Vietnam',
-                  style: TextStyle(color: context.theme.greyColor),
+              Expanded(
+                  child: SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    RadioListTile(
+                      value: 'vi',
+                      groupValue: null,
+                      onChanged: (value) {},
+                      activeColor: CusColors.greenDark,
+                      title: const Text('Tiếng Việt'),
+                      subtitle: Text(
+                        'Vietnamese',
+                        style: TextStyle(color: context.theme.greyColor),
+                      ),
+                    ),
+                    RadioListTile(
+                      value: 'vi',
+                      groupValue: null,
+                      onChanged: (value) {},
+                      activeColor: CusColors.greenDark,
+                      title: const Text('Tiếng Việt'),
+                      subtitle: Text(
+                        'Vietnamese',
+                        style: TextStyle(color: context.theme.greyColor),
+                      ),
+                    ),
+                    RadioListTile(
+                      value: 'vi',
+                      groupValue: null,
+                      onChanged: (value) {},
+                      activeColor: CusColors.greenDark,
+                      title: const Text('Tiếng Việt'),
+                      subtitle: Text(
+                        'Vietnamese',
+                        style: TextStyle(color: context.theme.greyColor),
+                      ),
+                    ),
+                    RadioListTile(
+                      value: 'vi',
+                      groupValue: null,
+                      onChanged: (value) {},
+                      activeColor: CusColors.greenDark,
+                      title: const Text('Tiếng Việt'),
+                      subtitle: Text(
+                        'Vietnamese',
+                        style: TextStyle(color: context.theme.greyColor),
+                      ),
+                    ),
+                    RadioListTile(
+                      value: 'vi',
+                      groupValue: null,
+                      onChanged: (value) {},
+                      activeColor: CusColors.greenDark,
+                      title: const Text('Tiếng Việt'),
+                      subtitle: Text(
+                        'Vietnamese',
+                        style: TextStyle(color: context.theme.greyColor),
+                      ),
+                    ),
+                    RadioListTile(
+                      value: 'vi',
+                      groupValue: null,
+                      onChanged: (value) {},
+                      activeColor: CusColors.greenDark,
+                      title: const Text('Tiếng Việt'),
+                      subtitle: Text(
+                        'Vietnamese',
+                        style: TextStyle(color: context.theme.greyColor),
+                      ),
+                    ),
+                    RadioListTile(
+                      value: 'vi',
+                      groupValue: null,
+                      onChanged: (value) {},
+                      activeColor: CusColors.greenDark,
+                      title: const Text('Tiếng Việt'),
+                      subtitle: Text(
+                        'Vietnamese',
+                        style: TextStyle(color: context.theme.greyColor),
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-              RadioListTile(
-                value: true,
-                groupValue: true,
-                onChanged: (value) {},
-                activeColor: CusColors.greenDark,
-                title: const Text('English'),
-                subtitle: Text(
-                  'English',
-                  style: TextStyle(color: context.theme.greyColor),
-                ),
-              ),
+              ))
             ],
           ),
         );
@@ -103,7 +172,7 @@ class LanguageButton extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10),
                 child: Text(
-                  'Languaes',
+                  'Languages',
                   style: TextStyle(color: CusColors.greenDark),
                 ),
               ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/common/extension/custom_theme_extension.dart';
+import 'package:my_app/common/extension/my_colors.dart';
 import 'package:my_app/common/utils/coolors.dart';
 
 ThemeData lightTheme() {
@@ -9,7 +10,8 @@ ThemeData lightTheme() {
       background: CusColors.backgroundLight,
     ),
     scaffoldBackgroundColor: CusColors.backgroundLight,
-    extensions: [
+    extensions: const <ThemeExtension<dynamic>>[
+      MyColors.light,
       CustomThemeExtension.lightMode,
     ],
     elevatedButtonTheme: ElevatedButtonThemeData(

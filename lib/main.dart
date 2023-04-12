@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:my_app/common/theme/dark_theme.dart';
 import 'package:my_app/common/theme/light_theme.dart';
 import 'package:my_app/feature/auth/pages/login_page.dart';
+import 'package:my_app/feature/welcome/pages/welcome_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,7 +11,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-  static const a = true;
+  static const isDarkTheme = true;
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -19,10 +20,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'WhatsApp Me',
-      theme: a == false ? lightTheme() : darkTheme(),
-      // darkTheme: darkTheme(),
+      theme: isDarkTheme == false ? lightTheme() : darkTheme(),
+      // darkTheme: a == false ? lightTheme() : darkTheme(),
       themeMode: ThemeMode.system,
-      home: const LoginPage(),
+      home: const WelcomePage(),
     );
   }
 }

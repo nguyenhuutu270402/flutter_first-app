@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:my_app/common/extension/custom_theme_extension.dart';
+import 'package:my_app/common/extension/my_colors.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -13,13 +12,14 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
+    final mycolors = Theme.of(context).extension<MyColors>()!;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         elevation: 0,
         title: Text(
           'Enter your phone number',
-          style: TextStyle(color: context.theme.greyColor),
+          style: TextStyle(color: mycolors.myColor2),
         ),
         centerTitle: true,
         actions: [

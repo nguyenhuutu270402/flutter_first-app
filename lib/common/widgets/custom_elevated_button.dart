@@ -19,19 +19,8 @@ class CustomElevatedButtom extends StatelessWidget {
       height: 42,
       child: ElevatedButton(
         onPressed: onPressed,
-        style: ButtonStyle(
-          foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
-          backgroundColor:
-              MaterialStateProperty.all<Color>(CusColors.greenDark),
-          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
-            ),
-          ),
-        ),
         child: Text(
           text,
-          style: const TextStyle(color: Colors.black),
         ),
       ),
     );

@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/common/theme/dark_theme.dart';
 import 'package:my_app/common/theme/light_theme.dart';
-import 'package:my_app/feature/wellcome/pages/welcome_page.dart';
+import 'package:my_app/feature/welcome/pages/welcome_page.dart';
 
 void main() {
   runApp(const MyApp());

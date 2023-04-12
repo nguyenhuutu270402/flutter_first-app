@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/common/utils/coolors.dart';
-import 'package:my_app/feature/wellcome/widgets/language_button.dart';
-import 'package:my_app/feature/wellcome/widgets/privacy_and_terms.dart';
+import 'package:my_app/feature/welcome/widgets/language_button.dart';
+import 'package:my_app/feature/welcome/widgets/privacy_and_terms.dart';
 import 'package:my_app/common/widgets/custom_elevated_button.dart';
 
 class WelcomePage extends StatelessWidget {

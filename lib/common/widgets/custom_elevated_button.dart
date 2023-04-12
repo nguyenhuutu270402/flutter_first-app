@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/common/utils/coolors.dart';
 
 class CustomElevatedButtom extends StatelessWidget {
   const CustomElevatedButtom({

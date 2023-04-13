@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/common/extension/custom_theme_extension.dart';
-import 'package:my_app/common/extension/my_colors.dart';
 import 'package:my_app/common/utils/coolors.dart';
+import 'package:my_app/common/widgets/custom_icon_button.dart';
 
 class LanguageButton extends StatelessWidget {
   const LanguageButton({Key? key}) : super(key: key);
@@ -34,19 +34,10 @@ class LanguageButton extends StatelessWidget {
                   const SizedBox(height: 10),
                   Row(
                     children: [
-                      const SizedBox(width: 20),
-                      IconButton(
-                        onPressed: () => Navigator.of(context).pop(),
-                        splashColor: Colors.transparent,
-                        splashRadius: 22,
-                        iconSize: 22,
-                        padding: EdgeInsets.zero,
-                        constraints: const BoxConstraints(minWidth: 40),
-                        icon: const Icon(
-                          Icons.close_outlined,
-                          color: CusColors.greyDark,
-                        ),
-                      ),
+                      // const SizedBox(width: 20),
+                      CustomIconButton(
+                          onTap: () => Navigator.of(context).pop(),
+                          icon: Icons.close),
                       const SizedBox(width: 10),
                       const Text(
                         'Add language',
@@ -57,10 +48,11 @@ class LanguageButton extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Divider(
-                    color: mycolors.greyColor!.withOpacity(0.3),
-                    thickness: 1,
-                  ),
+                  Container(
+                    color: mycolors.greyColor,
+                    margin: const EdgeInsets.only(top: 20),
+                    height: 1,
+                  )
                 ],
               ),
               Expanded(
@@ -69,116 +61,113 @@ class LanguageButton extends StatelessWidget {
                     constraints:
                         BoxConstraints(minHeight: constraints.minHeight),
                     child: IntrinsicHeight(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 10),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Column(
-                              children: [
-                                RadioListTile(
-                                  value: 'vi',
-                                  groupValue: null,
-                                  onChanged: (value) {},
-                                  activeColor: CusColors.greenDark,
-                                  title: const Text('Tiếng Việt'),
-                                  subtitle: Text(
-                                    'Vietnamese',
-                                    style: TextStyle(color: mycolors.greyColor),
-                                  ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Column(
+                            children: [
+                              RadioListTile(
+                                value: 'vi',
+                                groupValue: null,
+                                onChanged: (value) {},
+                                activeColor: CusColors.greenDark,
+                                title: const Text('Tiếng Việt'),
+                                subtitle: Text(
+                                  'Vietnamese',
+                                  style: TextStyle(color: mycolors.greyColor),
                                 ),
-                                RadioListTile(
-                                  value: 'vi',
-                                  groupValue: null,
-                                  onChanged: (value) {},
-                                  activeColor: CusColors.greenDark,
-                                  title: const Text('Tiếng Việt'),
-                                  subtitle: Text(
-                                    'Vietnamese',
-                                    style: TextStyle(color: mycolors.greyColor),
-                                  ),
+                              ),
+                              RadioListTile(
+                                value: 'vi',
+                                groupValue: null,
+                                onChanged: (value) {},
+                                activeColor: CusColors.greenDark,
+                                title: const Text('Tiếng Việt'),
+                                subtitle: Text(
+                                  'Vietnamese',
+                                  style: TextStyle(color: mycolors.greyColor),
                                 ),
-                                RadioListTile(
-                                  value: 'vi',
-                                  groupValue: null,
-                                  onChanged: (value) {},
-                                  activeColor: CusColors.greenDark,
-                                  title: const Text('Tiếng Việt'),
-                                  subtitle: Text(
-                                    'Vietnamese',
-                                    style: TextStyle(color: mycolors.greyColor),
-                                  ),
+                              ),
+                              RadioListTile(
+                                value: 'vi',
+                                groupValue: null,
+                                onChanged: (value) {},
+                                activeColor: CusColors.greenDark,
+                                title: const Text('Tiếng Việt'),
+                                subtitle: Text(
+                                  'Vietnamese',
+                                  style: TextStyle(color: mycolors.greyColor),
                                 ),
-                                RadioListTile(
-                                  value: 'vi',
-                                  groupValue: null,
-                                  onChanged: (value) {},
-                                  activeColor: CusColors.greenDark,
-                                  title: const Text('Tiếng Việt'),
-                                  subtitle: Text(
-                                    'Vietnamese',
-                                    style: TextStyle(color: mycolors.greyColor),
-                                  ),
+                              ),
+                              RadioListTile(
+                                value: 'vi',
+                                groupValue: null,
+                                onChanged: (value) {},
+                                activeColor: CusColors.greenDark,
+                                title: const Text('Tiếng Việt'),
+                                subtitle: Text(
+                                  'Vietnamese',
+                                  style: TextStyle(color: mycolors.greyColor),
                                 ),
-                                RadioListTile(
-                                  value: 'vi',
-                                  groupValue: null,
-                                  onChanged: (value) {},
-                                  activeColor: CusColors.greenDark,
-                                  title: const Text('Tiếng Việt'),
-                                  subtitle: Text(
-                                    'Vietnamese',
-                                    style: TextStyle(color: mycolors.greyColor),
-                                  ),
+                              ),
+                              RadioListTile(
+                                value: 'vi',
+                                groupValue: null,
+                                onChanged: (value) {},
+                                activeColor: CusColors.greenDark,
+                                title: const Text('Tiếng Việt'),
+                                subtitle: Text(
+                                  'Vietnamese',
+                                  style: TextStyle(color: mycolors.greyColor),
                                 ),
-                                RadioListTile(
-                                  value: 'vi',
-                                  groupValue: null,
-                                  onChanged: (value) {},
-                                  activeColor: CusColors.greenDark,
-                                  title: const Text('Tiếng Việt'),
-                                  subtitle: Text(
-                                    'Vietnamese',
-                                    style: TextStyle(color: mycolors.greyColor),
-                                  ),
+                              ),
+                              RadioListTile(
+                                value: 'vi',
+                                groupValue: null,
+                                onChanged: (value) {},
+                                activeColor: CusColors.greenDark,
+                                title: const Text('Tiếng Việt'),
+                                subtitle: Text(
+                                  'Vietnamese',
+                                  style: TextStyle(color: mycolors.greyColor),
                                 ),
-                                RadioListTile(
-                                  value: 'vi',
-                                  groupValue: null,
-                                  onChanged: (value) {},
-                                  activeColor: CusColors.greenDark,
-                                  title: const Text('Tiếng Việt'),
-                                  subtitle: Text(
-                                    'Vietnamese',
-                                    style: TextStyle(color: mycolors.greyColor),
-                                  ),
+                              ),
+                              RadioListTile(
+                                value: 'vi',
+                                groupValue: null,
+                                onChanged: (value) {},
+                                activeColor: CusColors.greenDark,
+                                title: const Text('Tiếng Việt'),
+                                subtitle: Text(
+                                  'Vietnamese',
+                                  style: TextStyle(color: mycolors.greyColor),
                                 ),
-                                RadioListTile(
-                                  value: 'vi',
-                                  groupValue: null,
-                                  onChanged: (value) {},
-                                  activeColor: CusColors.greenDark,
-                                  title: const Text('Tiếng Việt'),
-                                  subtitle: Text(
-                                    'Vietnamese',
-                                    style: TextStyle(color: mycolors.greyColor),
-                                  ),
+                              ),
+                              RadioListTile(
+                                value: 'vi',
+                                groupValue: null,
+                                onChanged: (value) {},
+                                activeColor: CusColors.greenDark,
+                                title: const Text('Tiếng Việt'),
+                                subtitle: Text(
+                                  'Vietnamese',
+                                  style: TextStyle(color: mycolors.greyColor),
                                 ),
-                                RadioListTile(
-                                  value: 'vi',
-                                  groupValue: null,
-                                  onChanged: (value) {},
-                                  activeColor: CusColors.greenDark,
-                                  title: const Text('Tiếng Việt'),
-                                  subtitle: Text(
-                                    'Vietnamese',
-                                    style: TextStyle(color: mycolors.greyColor),
-                                  ),
+                              ),
+                              RadioListTile(
+                                value: 'vi',
+                                groupValue: null,
+                                onChanged: (value) {},
+                                activeColor: CusColors.greenDark,
+                                title: const Text('Tiếng Việt'),
+                                subtitle: Text(
+                                  'Vietnamese',
+                                  style: TextStyle(color: mycolors.greyColor),
                                 ),
-                              ],
-                            )
-                          ],
-                        ),
+                              ),
+                            ],
+                          )
+                        ],
                       ),
                     ),
                   ),

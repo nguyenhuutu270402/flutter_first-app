@@ -2,6 +2,8 @@ import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:my_app/common/extension/custom_theme_extension.dart';
 import 'package:my_app/common/utils/coolors.dart';
+import 'package:my_app/common/widgets/custom_elevated_button.dart';
+import 'package:my_app/common/widgets/custom_icon_button.dart';
 import 'package:my_app/feature/auth/widgets/custom_text_field.dart';
 
 class LoginPage extends StatefulWidget {
@@ -24,7 +26,8 @@ class _LoginPageState extends State<LoginPage> {
           bottomSheetHeight: 600,
           backgroundColor: context.theme.backgroundColorBottomSheet,
           flagSize: 22,
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(20), topRight: Radius.circular(20)),
           textStyle: TextStyle(color: context.theme.greyColor),
           inputDecoration: InputDecoration(
               labelStyle: TextStyle(color: context.theme.greyColor),
@@ -34,7 +37,10 @@ class _LoginPageState extends State<LoginPage> {
               ),
               hintText: 'Search name or code country'),
         ),
-        onSelect: (country) {});
+        onSelect: (country) {
+          countryNameController.text = country.name;
+          countryCodeController.text = country.phoneCode;
+        });
   }
 
   @override
@@ -66,17 +72,9 @@ class _LoginPageState extends State<LoginPage> {
         ),
         centerTitle: true,
         actions: [
-          IconButton(
-            onPressed: () {},
-            splashColor: Colors.transparent,
-            splashRadius: 22,
-            iconSize: 22,
-            padding: EdgeInsets.zero,
-            constraints: const BoxConstraints(minWidth: 50),
-            icon: Icon(
-              Icons.more_vert,
-              color: context.theme.greyColor,
-            ),
+          CustomIconButton(
+            onTap: () {},
+            icon: Icons.more_vert,
           ),
         ],
       ),
@@ -106,7 +104,7 @@ class _LoginPageState extends State<LoginPage> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 50),
             child: CustomTextField(
-              onTap: () => showContryCodePicker,
+              onTap: showContryCodePicker,
               controller: countryNameController,
               readOnly: true,
               suffixIcon: const Icon(
@@ -123,7 +121,7 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(
                   width: 70,
                   child: CustomTextField(
-                    onTap: () => showContryCodePicker,
+                    onTap: showContryCodePicker,
                     controller: countryCodeController,
                     prefixText: '+',
                     readOnly: true,
@@ -139,8 +137,21 @@ class _LoginPageState extends State<LoginPage> {
                 ))
               ],
             ),
+          ),
+          const SizedBox(height: 20),
+          Text(
+            'Carrier charges may apply',
+            style: TextStyle(
+              color: context.theme.greyColor,
+            ),
           )
         ],
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: CustomElevatedButtom(
+        onPressed: () {},
+        text: 'NEXT',
+        buttomWidth: 100,
       ),
     );
   }

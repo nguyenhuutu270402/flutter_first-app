@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
       theme: isDarkTheme == false ? lightTheme() : darkTheme(),
       // darkTheme: a == false ? lightTheme() : darkTheme(),
       themeMode: ThemeMode.system,
-      home: const LoginPage(),
+      home: const WelcomePage(),
     );
   }
 }

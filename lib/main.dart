@@ -4,6 +4,9 @@ import 'package:my_app/common/theme/dark_theme.dart';
 import 'package:my_app/common/theme/light_theme.dart';
 import 'package:my_app/feature/auth/pages/login_page.dart';
 import 'package:my_app/feature/welcome/pages/welcome_page.dart';
+import 'package:my_app/test/page1.dart';
+import 'package:my_app/test/page2.dart';
+import 'package:my_app/test/page3.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,7 +28,7 @@ class MyApp extends StatelessWidget {
       theme: isDarkTheme == false ? lightTheme() : darkTheme(),
       // darkTheme: a == false ? lightTheme() : darkTheme(),
       themeMode: ThemeMode.system,
-      home: const WelcomePage(),
+      home: Page3(),
     );
   }
 }

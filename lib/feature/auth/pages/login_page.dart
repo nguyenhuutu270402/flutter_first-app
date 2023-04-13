@@ -79,6 +79,7 @@ class _LoginPageState extends State<LoginPage> {
         ],
       ),
       body: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),

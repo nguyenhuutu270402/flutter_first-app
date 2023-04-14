@@ -106,37 +106,59 @@ class MyModal extends StatelessWidget {
       child: Stack(
         children: <Widget>[
           Container(
-            color: Colors.black.withOpacity(0.5),
+            color: Colors.black.withOpacity(0.1),
           ),
           Center(
             child: Positioned(
               child: Container(
-                  width: MediaQuery.of(context).size.width - 16,
-                  // height: 100,
+                width: MediaQuery.of(context).size.width - 16,
+                decoration: BoxDecoration(
                   color: Colors.white,
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(22),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      SizedBox(height: 22),
-                      Text(
+                      const Text(
                         'Thông báo',
                         style: TextStyle(
                             color: Colors.amber,
                             fontSize: 18,
                             decoration: TextDecoration.none),
                       ),
-                      SizedBox(height: 22),
-                      Text(
+                      const SizedBox(height: 22),
+                      const Text(
                         'Chúng tôi không tìm thấy tài khoản với số điện thoại này',
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          color: Colors.black,
+                          color: Color.fromARGB(255, 54, 54, 54),
                           fontSize: 14,
                           decoration: TextDecoration.none,
+                          fontStyle: FontStyle.normal,
                         ),
                       ),
+                      const SizedBox(height: 22),
+                      ElevatedButton(
+                        onPressed: () {
+                          // Xử lý sự kiện khi nhấn nút
+                          Navigator.pop(context);
+                        },
+                        child: const Text('Quay lại',
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 16)),
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: const Color(0xFFF4A62F),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            fixedSize: const Size(145, 48)),
+                      ),
                     ],
-                  )),
+                  ),
+                ),
+              ),
             ),
           ),
         ],

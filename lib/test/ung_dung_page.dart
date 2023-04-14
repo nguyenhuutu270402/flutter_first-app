@@ -10,55 +10,61 @@ class UngDungPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 2,
-      child: Scaffold(
-        body: Column(children: [
-          Expanded(
-            child: TabBarView(
-              children: [
-                UngDungTab(),
-                NguoiDungTab(),
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-              height: 45,
-              decoration: BoxDecoration(
-                color: Color(0xffE4EEFF),
-                borderRadius: BorderRadius.circular(25),
-                border: Border.all(
-                  color: Color(0xff367BF6),
-                  width: 2.0,
-                ),
-              ),
-              child: TabBar(
-                indicator: BoxDecoration(
-                  color: Color(0xff367BF6),
-                  borderRadius: BorderRadius.circular(25),
-                ),
-                labelColor: Colors.white,
-                unselectedLabelColor: Colors.black,
-                tabs: [
-                  Tab(
-                    icon: Image.asset(
-                      AssetPNG.iconUngDung,
-                      height: 30,
-                      width: 30,
-                    ),
-                  ),
-                  Tab(
-                    icon: Image.asset(
-                      AssetPNG.iconPerson,
-                      height: 30,
-                      width: 30,
-                    ),
-                  ),
+      child: Container(
+        child: Scaffold(
+          body: Column(children: [
+            Expanded(
+              child: TabBarView(
+                children: [
+                  UngDungTab(),
+                  NguoiDungTab(),
                 ],
               ),
             ),
-          ),
-        ]),
+            Container(
+              color: Color(0xffE4EEFF),
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 70, vertical: 16),
+                child: Container(
+                  height: 45,
+                  decoration: BoxDecoration(
+                    color: Color(0xffE4EEFF),
+                    borderRadius: BorderRadius.circular(25),
+                    border: Border.all(
+                      color: Color(0xff367BF6),
+                      width: 2.0,
+                    ),
+                  ),
+                  child: TabBar(
+                    indicator: BoxDecoration(
+                      color: Color(0xff367BF6),
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                    labelColor: Colors.white,
+                    unselectedLabelColor: Colors.black,
+                    tabs: [
+                      Tab(
+                        icon: Image.asset(
+                          AssetPNG.iconUngDung,
+                          height: 30,
+                          width: 30,
+                        ),
+                      ),
+                      Tab(
+                        icon: Image.asset(
+                          AssetPNG.iconPerson,
+                          height: 30,
+                          width: 30,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ]),
+        ),
       ),
     );
   }

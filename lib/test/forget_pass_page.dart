@@ -59,7 +59,12 @@ class ForgetPassPage extends StatelessWidget {
                   SizedBox(height: 24),
                   ElevatedButton(
                     onPressed: () {
-                      _showModal(context);
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return MyModal();
+                        },
+                      );
                     },
                     child: Text('Gửi',
                         style: TextStyle(color: Colors.white, fontSize: 16)),
@@ -89,94 +94,53 @@ class ForgetPassPage extends StatelessWidget {
       ),
     );
   }
+}
 
-  void _showModal(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      backgroundColor: Colors.transparent,
-      builder: (BuildContext context) {
-        return Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
-            color: Colors.white,
-          ),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Container(
-                height: 4,
-                width: 40,
-                margin: EdgeInsets.only(top: 16),
-                decoration: BoxDecoration(
-                  color: Colors.grey[300],
-                  borderRadius: BorderRadius.circular(8),
-                ),
-              ),
-              SizedBox(height: 24),
-              Text(
-                'Xác nhận xóa tài khoản',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-              SizedBox(height: 24),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Text(
-                  'Bạn có chắc chắn muốn xóa tài khoản? Hành động này sẽ xóa toàn bộ thông tin tài khoản của bạn và không thể khôi phục được.',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.grey[600],
-                  ),
-                ),
-              ),
-              SizedBox(height: 24),
-              Row(
-                children: [
-                  Expanded(
-                    child: TextButton(
-                      onPressed: () {
-                        // xử lý sự kiện khi nhấn Hủy
-                      },
-                      child: Text(
-                        'Hủy',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.grey[600],
-                        ),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    height: 48,
-                    width: 1,
-                    color: Colors.grey[300],
-                  ),
-                  Expanded(
-                    child: TextButton(
-                      onPressed: () {
-                        // xử lý sự kiện khi nhấn Xóa
-                      },
-                      child: Text(
-                        'Xóa',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.red,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        );
+class MyModal extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.pop(context);
       },
+      child: Stack(
+        children: <Widget>[
+          Container(
+            color: Colors.black.withOpacity(0.5),
+          ),
+          Center(
+            child: Positioned(
+              child: Container(
+                  width: MediaQuery.of(context).size.width - 16,
+                  // height: 100,
+                  color: Colors.white,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      SizedBox(height: 22),
+                      Text(
+                        'Thông báo',
+                        style: TextStyle(
+                            color: Colors.amber,
+                            fontSize: 18,
+                            decoration: TextDecoration.none),
+                      ),
+                      SizedBox(height: 22),
+                      Text(
+                        'Chúng tôi không tìm thấy tài khoản với số điện thoại này',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 14,
+                          decoration: TextDecoration.none,
+                        ),
+                      ),
+                    ],
+                  )),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

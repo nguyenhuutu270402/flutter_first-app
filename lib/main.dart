@@ -7,6 +7,7 @@ import 'package:my_app/feature/welcome/pages/welcome_page.dart';
 import 'package:my_app/test/page1.dart';
 import 'package:my_app/test/page2.dart';
 import 'package:my_app/test/page3.dart';
+import 'package:my_app/test/page4.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
       theme: isDarkTheme == false ? lightTheme() : darkTheme(),
       // darkTheme: a == false ? lightTheme() : darkTheme(),
       themeMode: ThemeMode.system,
-      home: Page3(),
+      home: Page4(),
     );
   }
 }

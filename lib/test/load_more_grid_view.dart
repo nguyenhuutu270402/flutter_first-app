@@ -11,6 +11,7 @@ class LoadMoreGridView extends StatefulWidget {
 }
 
 class _LoadMoreGridViewState extends State<LoadMoreGridView> {
+  bool isShowAppBar = true;
   List apiList = List.generate(78, (index) => "Item: ${index + 1}");
   ScrollController _scrollController = ScrollController();
   int _currentMax = 10;
@@ -44,9 +45,38 @@ class _LoadMoreGridViewState extends State<LoadMoreGridView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Load More"),
-      ),
+      appBar: isShowAppBar
+          ? AppBar(
+              backgroundColor: Colors.grey,
+              title: TextField(
+                decoration: InputDecoration(
+                  labelText: 'Enter your name',
+                  border: OutlineInputBorder(),
+                ),
+              ),
+              centerTitle: true,
+              leading: Container(
+                color: Colors.red,
+                child: Text("Back"),
+              ),
+              actions: [
+                IconButton(
+                  icon: Icon(Icons.search),
+                  onPressed: () {
+                    // Xử lý khi người dùng nhấn vào nút tìm kiếm
+                  },
+                ),
+              ],
+              toolbarHeight: 100,
+              bottom: PreferredSize(
+                preferredSize: Size.fromHeight(50),
+                child: Container(
+                  color: Colors.green,
+                  height: 50.0,
+                ),
+              ),
+            )
+          : null,
       body: ValueListenableBuilder(
         valueListenable: myList,
         builder: (context, value, child) {

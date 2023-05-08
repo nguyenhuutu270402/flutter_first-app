@@ -10,7 +10,6 @@ class LoadMoreListView extends StatefulWidget {
 
 class _LoadMoreListViewState extends State<LoadMoreListView> {
   List apiList = List.generate(78, (index) => "Item: ${index + 1}");
-  // List myList = [];
   ScrollController _scrollController = ScrollController();
   int _currentMax = 10;
   ValueNotifier<List> myList = ValueNotifier([]);

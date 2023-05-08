@@ -13,6 +13,8 @@ import 'package:my_app/test/page1.dart';
 import 'package:my_app/test/page2.dart';
 import 'package:my_app/test/page3.dart';
 import 'package:my_app/test/page4.dart';
+import 'package:my_app/test/sliver_list.dart';
+import 'package:my_app/test/sliver_list_load_more.dart';
 import 'package:my_app/test/ung_dung_page.dart';
 import 'package:my_app/test/video_page.dart';
 
@@ -36,7 +38,7 @@ class MyApp extends StatelessWidget {
       theme: isDarkTheme == false ? lightTheme() : darkTheme(),
       // darkTheme: a == false ? lightTheme() : darkTheme(),
       themeMode: ThemeMode.system,
-      home: LoadMoreGridView(),
+      home: SliverListLoadMore(),
     );
   }
 }

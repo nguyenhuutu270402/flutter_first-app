@@ -4,6 +4,7 @@ import 'package:my_app/common/theme/dark_theme.dart';
 import 'package:my_app/common/theme/light_theme.dart';
 import 'package:my_app/feature/auth/pages/login_page.dart';
 import 'package:my_app/feature/welcome/pages/welcome_page.dart';
+import 'package:my_app/test/box_hide.dart';
 import 'package:my_app/test/chuyenmanhinh.dart';
 import 'package:my_app/test/forget_pass_page.dart';
 import 'package:my_app/test/load_more_grid_view.dart';
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
       theme: isDarkTheme == false ? lightTheme() : darkTheme(),
       // darkTheme: a == false ? lightTheme() : darkTheme(),
       themeMode: ThemeMode.system,
-      home: SliverListLoadMore(),
+      home: ScrollControllerDemo(),
     );
   }
 }

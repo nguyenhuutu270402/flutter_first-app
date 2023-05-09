@@ -42,11 +42,10 @@ class _SliverListLoadMoreState extends State<SliverListLoadMore> {
       // Thêm dữ liệu mới vào danh sách
       final List<String> newItems =
           List.generate(5, (index) => 'Item ${items.length + index + 1}');
-      Future.delayed(Duration(seconds: 2), () {
-        setState(() {
-          items.addAll(newItems);
-          _isLoading = false;
-        });
+
+      setState(() {
+        items.addAll(newItems);
+        _isLoading = false;
       });
     }
   }

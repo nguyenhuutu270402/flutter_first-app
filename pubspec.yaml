@@ -39,6 +39,7 @@ dependencies:
   country_picker: ^2.0.20
   video_player: ^2.6.1
   chewie: ^1.4.0
+  table_calendar: ^3.0.9
 
 flutter_native_splash: 
     color: "#FFFFFF"

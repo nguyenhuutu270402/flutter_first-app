@@ -45,17 +45,6 @@ class _CustomTableCalendarState extends State<CustomTableCalendar> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 ElevatedButton(
-                  onPressed: () {
-                    showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return TableCalendarDialog();
-                      },
-                    );
-                  },
-                  child: Text("Show custom tabel calendar"),
-                ),
-                ElevatedButton(
                   onPressed: _showMyDatePicker,
                   child: Text("Show DatePicker"),
                 ),
@@ -78,26 +67,6 @@ class _CustomTableCalendarState extends State<CustomTableCalendar> {
           )
         ],
       ),
-    );
-  }
-}
-
-class TableCalendarDialog extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return AlertDialog(
-      title: Text("Select a date"),
-      content: TableCalendar(
-        firstDay: DateTime.utc(2022, 1, 1),
-        lastDay: DateTime.utc(2030, 12, 31),
-        focusedDay: DateTime.now(),
-      ),
-      actions: <Widget>[
-        FloatingActionButton(
-          child: Text("OK"),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
-      ],
     );
   }
 }

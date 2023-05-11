@@ -18,7 +18,9 @@ class _CustomBottomSheetState extends State<CustomBottomSheet> {
     // items.addAll(
     //   List.generate(15, (index) => "Item ${items.length + index + 1}"),
     // );
-    items.insert(0, "New Item");
+    List<String> list1 = ["Item 1", "Item 2", "New item"];
+    items.insertAll(0, list1.where((element) => !items.contains(element)));
+    // items.insert(0, "New Item");
   }
 
   @override

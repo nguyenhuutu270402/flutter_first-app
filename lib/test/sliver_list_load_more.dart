@@ -9,14 +9,15 @@ class SliverListLoadMore extends StatefulWidget {
 }
 
 class _SliverListLoadMoreState extends State<SliverListLoadMore> {
-  final List<String> items = List.generate(20, (index) => 'Item ${index + 1}');
   final ScrollController _scrollController = ScrollController();
+  ValueNotifier<List<String>> items = ValueNotifier([]);
 
   bool _isLoading = false;
 
   @override
   void initState() {
     super.initState();
+    _fisrtData();
     _scrollController.addListener(_onScroll);
   }
 
@@ -24,6 +25,13 @@ class _SliverListLoadMoreState extends State<SliverListLoadMore> {
   void dispose() {
     _scrollController.dispose();
     super.dispose();
+  }
+
+  void _fisrtData() {
+    final List<String> newItems =
+        List.generate(10, (index) => 'Item ${items.value.length + index}');
+
+    items.value.addAll(newItems);
   }
 
   void _onScroll() {
@@ -34,20 +42,11 @@ class _SliverListLoadMoreState extends State<SliverListLoadMore> {
   }
 
   void _loadMoreItems() {
-    if (!_isLoading) {
-      setState(() {
-        _isLoading = true;
-      });
-
-      // Thêm dữ liệu mới vào danh sách
-      final List<String> newItems =
-          List.generate(5, (index) => 'Item ${items.length + index + 1}');
-
-      setState(() {
-        items.addAll(newItems);
-        _isLoading = false;
-      });
-    }
+    // Thêm dữ liệu mới vào danh sách
+    final List<String> newItems =
+        List.generate(5, (index) => 'Item ${items.value.length + index}');
+    items.value.addAll(newItems);
+    items.notifyListeners();
   }
 
   @override
@@ -61,26 +60,25 @@ class _SliverListLoadMoreState extends State<SliverListLoadMore> {
             floating: true,
             snap: true,
           ),
-          SliverToBoxAdapter(
-            child: Container(
-              color: Colors.green,
-              height: 1000,
-            ),
-          ),
-          SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (context, index) {
-                if (index < items.length) {
-                  return ListTile(
-                    title: Text(items[index]),
-                  );
-                } else {
-                  return _buildLoader();
-                }
-              },
-              childCount: items.length + 1,
-            ),
-          ),
+          ValueListenableBuilder(
+            valueListenable: items,
+            builder: (context, value, child) {
+              return SliverList(
+                delegate: SliverChildBuilderDelegate(
+                  (context, index) {
+                    if (index < items.value.length) {
+                      return ListTile(
+                        title: Text(items.value[index]),
+                      );
+                    } else {
+                      return _buildLoader();
+                    }
+                  },
+                  childCount: items.value.length + 1,
+                ),
+              );
+            },
+          )
         ],
       ),
     );

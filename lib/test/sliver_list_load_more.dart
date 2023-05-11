@@ -81,6 +81,9 @@ class _SliverListLoadMoreState extends State<SliverListLoadMore> {
               title: Text('SliverList Load More'),
               floating: true,
               snap: true,
+              backgroundColor: Theme.of(context).platform == TargetPlatform.iOS
+                  ? Colors.amber
+                  : Colors.red,
             ),
             ValueListenableBuilder(
               valueListenable: items,
